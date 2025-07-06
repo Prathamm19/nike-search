@@ -8,11 +8,18 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const searchRef = useRef(null);
+  const API_BASE_URL = "https://nike-backend-dlhu.onrender.com/";
+
+
+
+
+
 
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
-        const res = await axios.post('http://localhost:8000/search', {
+        const res = await axios.post(`${API_BASE_URL}/search`, {
+
           query,
           top_k: 5
         });
@@ -52,7 +59,8 @@ function App() {
     setSelectedProduct(null);
 
     try {
-      const res = await axios.post('http://localhost:8000/product', {
+      const res = await axios.post(`${API_BASE_URL}/product`, {
+
         product_id: product.id
       });
 
