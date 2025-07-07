@@ -8,7 +8,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const searchRef = useRef(null);
-  const API_BASE_URL = "https://nike-backend-dlhu.onrender.com/";
+  const API_BASE_URL = "https://nike-backend-dlhu.onrender.com";
 
 
 
