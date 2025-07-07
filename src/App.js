@@ -52,11 +52,15 @@ function App() {
   }, []);
 
   const handleProductSelect = async (product) => {
-    console.log("🟡 Selected:", product);
-    setSuggestions([]);
+  console.log("🟡 Selected:", product);
+  setSuggestions([]); // Immediately close dropdown
+  setSelectedProduct(null);
+  setLoading(true);
+
+  // Slight delay before setting query, so UI doesn't clash
+  setTimeout(() => {
     setQuery(product.title);
-    setLoading(true);
-    setSelectedProduct(null);
+  }, 50);
 
     try {
       const res = await axios.post(`${API_BASE_URL}/product`, {
